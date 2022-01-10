@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto";
+}
+
+body {
+  margin: 0;
+}
+
+.todo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 750px;
+  height: 530px;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  box-shadow: 1px 2px 10px #f3f3f3;
+  border-radius: 10px;
+  border: 1px solid #f4f6f8;
+  &__sidebar {
+    background-color: #E5E5E5;
+    width: 200px;
+    height: 100%;
+    border-right: 1px solid #f1f1f1;
+    padding: 60px 20px;
+  }
+}
