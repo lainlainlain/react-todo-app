@@ -1,6 +1,9 @@
 import List from "./components/List/List";
 
 import "./App.css";
+import AddList from "./components/AddList/AddList";
+import React from "react";
+import DB from "./assets/db.json";
 
 function App() {
   return (
@@ -24,26 +27,27 @@ function App() {
                 </svg>
               ),
               name: "Все задачи",
-              active: true
             },
           ]}
         />
         <List
           props={[
             {
-              color: 'green',
+              color: "green",
               name: "Покупки",
             },
             {
-              color: 'blue',
+              color: "blue",
               name: "Фронтенд",
             },
             {
-              color: 'pink',
+              color: "pink",
               name: "Фильмы и сериалы",
+              active: true,
             },
           ]}
         />
+        <AddList colors={DB.colors} />
       </div>
 
       <div className="todo__tasks"></div>

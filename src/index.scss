@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  font-family: -apple-system, BlinkMacSystemFont, "Roboto";
+  font-family: -apple-system, "Roboto";
 }
 
 body {
@@ -10,6 +10,7 @@ body {
 }
 
 .todo {
+  display: flex;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -21,10 +22,40 @@ body {
   border-radius: 10px;
   border: 1px solid #f4f6f8;
   &__sidebar {
-    background-color: #E5E5E5;
+    background-color: #e5e5e5;
     width: 200px;
     height: 100%;
+    box-sizing: border-box;
     border-right: 1px solid #f1f1f1;
     padding: 60px 20px;
+  }
+}
+
+.button {
+  background: #4dd599;
+  border-radius: 4px;
+  padding: 10px 20px;
+  border: 0;
+  color: #fff;
+  &:hover {
+    background: darken(#4dd599, 6)
+  }
+  &:active {
+    background: darken(#4dd599, 10)
+
+  }
+  
+}
+
+.field {
+  background: #ffffff;
+  border: 1px solid #efefef;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 8px 12px;
+  width: 100%;
+
+  &:focus {
+    border-color: #d1d0d0;
   }
 }
