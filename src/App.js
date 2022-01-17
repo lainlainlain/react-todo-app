@@ -5,11 +5,10 @@ import List from "./components/List/List";
 import AddList from "./components/AddList/AddList";
 import Tasks from "./components/Tasks/Tasks";
 
-import "./App.scss";
-
 function App() {
   const [listsState, setListsState] = useState(null);
   const [colors, setColors] = useState(null);
+  const [activeItem, setActiveItem] = useState(null);
 
   useEffect(() => {
     axios
@@ -27,12 +26,33 @@ function App() {
     setListsState(newList);
   };
 
+  const onAddTask = (listId, taskObj) => {
+    const newList = listsState.map((item) => {
+      if (item.id === listId) {
+        item.tasks = [...item.tasks, taskObj];
+      }
+      return item;
+    });
+    setListsState(newList);
+  };
+
+  const editListTitle = (id, title) => {
+    const newList = listsState.map((item) => {
+      if (item.id === id) {
+        item.name = title;
+      }
+      return item;
+    });
+    setListsState(newList);
+  };
+
   return (
     <div className="todo">
       <div className="todo__sidebar">
         <List
           props={[
             {
+              
               icon: (
                 <svg
                   width="14"
@@ -51,6 +71,7 @@ function App() {
             },
           ]}
         />
+
         {listsState ? (
           <List
             props={listsState}
@@ -58,6 +79,8 @@ function App() {
               const newList = listsState.filter((item) => item.id !== id);
               setListsState(newList);
             }}
+            onClickItem={(item) => setActiveItem(item)}
+            activeItem={activeItem}
             isRemovable
           />
         ) : (
@@ -66,7 +89,13 @@ function App() {
         <AddList colors={colors} onAdd={onAddList} />
       </div>
 
-      {listsState && <Tasks list={listsState[1]} />}
+      {listsState && activeItem && (
+        <Tasks
+          list={activeItem}
+          onEditTitle={editListTitle}
+          onAddTask={onAddTask}
+        />
+      )}
     </div>
   );
 }

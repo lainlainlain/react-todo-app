@@ -1,24 +1,34 @@
 {
   "lists": [
     {
-      "id": 1,
-      "name": "Продажи",
-      "colorId": 5
-    },
-    {
       "id": 2,
       "name": "Фронтенд",
       "colorId": 4
     },
     {
       "id": 3,
-      "name": "Фильмы и сериалы",
+      "name": "Фильмы ",
       "colorId": 3
     },
     {
-      "id": 4,
       "name": "Книги",
-      "colorId": 2
+      "colorId": 2,
+      "id": 4
+    },
+    {
+      "name": "Личное",
+      "colorId": 6,
+      "id": 5
+    },
+    {
+      "name": "Продажи",
+      "colorId": 2,
+      "id": 6
+    },
+    {
+      "name": "asdqwe",
+      "colorId": 2,
+      "id": 7
     }
   ],
   "tasks": [
@@ -47,10 +57,52 @@
       "completed": false
     },
     {
-      "listId": 4,
-      "text": "Купить 1984!",
-      "completed": true,
+      "listId": 3,
+      "text": "Хоббит",
+      "completed": false,
+      "id": 7
+    },
+    {
+      "listId": 3,
+      "text": "LOTR",
+      "completed": false,
+      "id": 8
+    },
+    {
+      "listId": 5,
+      "text": "asdqwe",
+      "completed": false,
+      "id": 9
+    },
+    {
+      "listId": 6,
+      "text": "asdqwe",
+      "completed": false,
       "id": 10
+    },
+    {
+      "listId": 2,
+      "text": "фыв",
+      "completed": false,
+      "id": 11
+    },
+    {
+      "listId": 2,
+      "text": "ASDQWE",
+      "completed": false,
+      "id": 12
+    },
+    {
+      "listId": 2,
+      "text": "",
+      "completed": false,
+      "id": 13
+    },
+    {
+      "listId": 3,
+      "text": "джокер",
+      "completed": false,
+      "id": 14
     }
   ],
   "colors": [

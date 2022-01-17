@@ -1,6 +1,35 @@
 .tasks {
   flex: 1;
   padding: 60px;
+
+  &__form {
+    &-new {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      opacity: 0.4;
+      transition: opacity 0.15s ease-in-out;
+      &:hover {
+        opacity: 1;
+      }
+      img {
+        width: 16px;
+        height: 16px;
+        margin-left: 4px;
+      }
+      span {
+        font-size: 16px;
+        margin-left: 19px;
+      }
+    }
+    &-block {
+      .button {
+        margin-right: 10px;
+        margin-top: 15px;
+      }
+    }
+  }
+
   &__title {
     font-family: Montserrat;
     font-size: 32px;
@@ -23,6 +52,18 @@
 
   &__items {
     margin-top: 30px;
+    h2 {
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      font-family: Montserrat;
+
+      font-size: 22px;
+
+      color: #c9d1d3;
+    }
     &-row {
       display: flex;
       align-items: center;

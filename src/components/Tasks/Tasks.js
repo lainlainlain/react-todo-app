@@ -1,17 +1,35 @@
+import axios from "axios";
+
 import "./Tasks.scss";
 import editSvg from "../../assets/img/edit.svg";
-const Tasks = ({ list }) => {
-  console.log(list);
+import AddNewTask from "./AddNewTask";
+
+const Tasks = ({ list, onEditTitle, onAddTask }) => {
+  const editTitle = () => {
+    const newTitle = prompt("Введение название списка", list.name);
+    if (newTitle) {
+      onEditTitle(list.id, newTitle);
+      axios
+        .patch("http://localhost:3001/lists/" + list.id, {
+          name: newTitle,
+        })
+        .catch(() => {
+          alert("Запрос не отправлен");
+        });
+    }
+  };
+
   return (
     <div className="tasks">
       <div className="tasks__title">
         {list.name}
-        <img src={editSvg} alt="edit" />
+        <img src={editSvg} alt="edit" onClick={editTitle} />
       </div>
       <div className="tasks__items">
+        {!list.tasks.length && <h2>Задачи отсуствуют</h2>}
         {list.tasks.map((task) => {
           return (
-            <div className="tasks__items-row">
+            <div key={task.id} className="tasks__items-row">
               <div className="checkbox">
                 <input id={`task-${task.id}`} type="checkbox"></input>
                 <label htmlFor={`task-${task.id}`}>
@@ -36,6 +54,7 @@ const Tasks = ({ list }) => {
             </div>
           );
         })}
+        <AddNewTask list={list} onAddTask={onAddTask} />
       </div>
     </div>
   );

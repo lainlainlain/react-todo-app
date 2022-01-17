@@ -37,14 +37,27 @@ body {
   padding: 10px 20px;
   border: 0;
   color: #fff;
+  font-size: 14px;
+
   &:hover {
-    background: darken(#4dd599, 6)
+    background: darken(#4dd599, 6);
   }
   &:active {
-    background: darken(#4dd599, 10)
-
+    background: darken(#4dd599, 10);
   }
-  
+  &:disabled {
+    background: rgb(192, 192, 192);
+  }
+  &--grey {
+    background: #f4f6f8;
+    color: #9c9c9c;
+    &:hover {
+      background: darken(#f4f6f8, 6);
+    }
+    &:active {
+      background: darken(#f4f6f8, 10);
+    }
+  }
 }
 
 .field {
@@ -54,6 +67,7 @@ body {
   border-radius: 4px;
   padding: 8px 12px;
   width: 100%;
+  font-size: 14px;
 
   &:focus {
     border-color: #d1d0d0;
