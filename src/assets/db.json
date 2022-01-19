@@ -16,18 +16,17 @@
       "id": 5
     },
     {
-      "name": "Работа",
-      "colorId": 7,
+      "name": "asdqwe",
+      "colorId": 3,
       "id": 6
+    },
+    {
+      "name": "Игры",
+      "colorId": 1,
+      "id": 7
     }
   ],
   "tasks": [
-    {
-      "listId": 5,
-      "text": "asdqwe",
-      "completed": false,
-      "id": 9
-    },
     {
       "listId": 3,
       "text": "джокер",
@@ -39,12 +38,6 @@
       "text": "Прочитать 1984",
       "completed": false,
       "id": 15
-    },
-    {
-      "listId": 4,
-      "text": "фывйцу",
-      "completed": false,
-      "id": 20
     },
     {
       "listId": 5,
@@ -59,10 +52,10 @@
       "id": 22
     },
     {
-      "listId": 6,
-      "text": "Начать работать",
+      "listId": 7,
+      "text": "Вов",
       "completed": false,
-      "id": 23
+      "id": 27
     }
   ],
   "colors": [
