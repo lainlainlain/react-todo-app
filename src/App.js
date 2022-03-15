@@ -12,12 +12,10 @@ function App() {
   const [activeItem, setActiveItem] = useState(null);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/lists?_expand=color&_embed=tasks")
-      .then(({ data }) => {
-        setListsState(data);
-      });
-    axios.get("http://localhost:3001/colors").then(({ data }) => {
+    axios.get("/lists?_expand=color&_embed=tasks").then(({ data }) => {
+      setListsState(data);
+    });
+    axios.get("/colors").then(({ data }) => {
       setColors(data);
     });
   }, []);
@@ -71,7 +69,7 @@ function App() {
         return list;
       });
       setListsState(newList);
-      axios.delete("http://localhost:3001/tasks/" + taskId).catch(() => {
+      axios.delete("/tasks/" + taskId).catch(() => {
         alert("Запрос не отправлен");
       });
     }
@@ -92,7 +90,7 @@ function App() {
     });
     setListsState(newList);
     axios
-      .patch("http://localhost:3001/tasks/" + taskObj.id, {
+      .patch("/tasks/" + taskObj.id, {
         text: newTaskText,
       })
       .catch(() => {
@@ -114,7 +112,7 @@ function App() {
     });
     setListsState(newList);
     axios
-      .patch("http://localhost:3001/tasks/" + taskId, {
+      .patch("/tasks/" + taskId, {
         completed,
       })
       .catch(() => {

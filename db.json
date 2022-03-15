@@ -1,16 +1,6 @@
 {
   "lists": [
     {
-      "id": 3,
-      "name": "Фильмы ",
-      "colorId": 3
-    },
-    {
-      "name": "Книги",
-      "colorId": 2,
-      "id": 4
-    },
-    {
       "name": "Личное",
       "colorId": 6,
       "id": 5
@@ -26,35 +16,22 @@
       "id": 7
     },
     {
-      "name": "asdqwe",
-      "colorId": 8,
-      "id": 8
+      "name": "asdasd",
+      "colorId": 1,
+      "id": 9
+    },
+    {
+      "name": "asdasd",
+      "colorId": 5,
+      "id": 10
     }
   ],
   "tasks": [
-    {
-      "listId": 3,
-      "text": "джокер",
-      "completed": false,
-      "id": 14
-    },
-    {
-      "listId": 4,
-      "text": "Прочитать 1984",
-      "completed": false,
-      "id": 15
-    },
     {
       "listId": 5,
       "text": "фывйцу",
       "completed": false,
       "id": 21
-    },
-    {
-      "listId": 3,
-      "text": "spUIDE MAN",
-      "completed": false,
-      "id": 22
     },
     {
       "listId": 7,
