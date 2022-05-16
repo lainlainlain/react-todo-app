@@ -21,7 +21,7 @@ const AddNewTask = ({ list, onAddTask }) => {
     };
     setIsLoading(true);
     axios
-      .post("http://localhost:3001/tasks", obj)
+      .post("https://json-server-backend-fortodoapp.herokuapp.com/tasks", obj)
       .then(({ data }) => {
         onAddTask(list.id, data);
         toggleVisibleForm();

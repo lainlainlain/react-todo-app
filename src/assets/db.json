@@ -46,16 +46,16 @@
       "id": 21
     },
     {
-      "listId": 3,
-      "text": "spUIDE MAN",
-      "completed": false,
-      "id": 22
-    },
-    {
       "listId": 7,
       "text": "Вов",
       "completed": false,
       "id": 27
+    },
+    {
+      "listId": 3,
+      "text": "asdasd",
+      "completed": false,
+      "id": 28
     }
   ],
   "colors": [

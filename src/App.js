@@ -13,11 +13,11 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/lists?_expand=color&_embed=tasks")
+      .get("https://json-server-backend-fortodoapp.herokuapp.com/lists?_expand=color&_embed=tasks")
       .then(({ data }) => {
         setListsState(data);
       });
-    axios.get("http://localhost:3001/colors").then(({ data }) => {
+    axios.get("https://json-server-backend-fortodoapp.herokuapp.com/colors").then(({ data }) => {
       setColors(data);
     });
   }, []);
@@ -71,7 +71,7 @@ function App() {
         return list;
       });
       setListsState(newList);
-      axios.delete("http://localhost:3001/tasks/" + taskId).catch(() => {
+      axios.delete("https://json-server-backend-fortodoapp.herokuapp.com/tasks/" + taskId).catch(() => {
         alert("Запрос не отправлен");
       });
     }
@@ -92,7 +92,7 @@ function App() {
     });
     setListsState(newList);
     axios
-      .patch("http://localhost:3001/tasks/" + taskObj.id, {
+      .patch("https://json-server-backend-fortodoapp.herokuapp.com/tasks/" + taskObj.id, {
         text: newTaskText,
       })
       .catch(() => {
@@ -114,7 +114,7 @@ function App() {
     });
     setListsState(newList);
     axios
-      .patch("http://localhost:3001/tasks/" + taskId, {
+      .patch("https://json-server-backend-fortodoapp.herokuapp.com/tasks/" + taskId, {
         completed,
       })
       .catch(() => {

@@ -21,7 +21,7 @@ const Tasks = ({
     if (newTitle) {
       onEditTitle(list.id, newTitle);
       axios
-        .patch("http://localhost:3001/lists/" + list.id, {
+        .patch("https://json-server-backend-fortodoapp.herokuapp.com/lists/" + list.id, {
           name: newTitle,
         })
         .catch(() => {
