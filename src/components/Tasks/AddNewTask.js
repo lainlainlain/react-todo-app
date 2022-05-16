@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+import { db } from "../../firebase"
+import { collection, addDoc } from "firebase/firestore";
 
 import addSvg from "../../assets/img/add.svg";
 
@@ -13,25 +15,37 @@ const AddNewTask = ({ list, onAddTask }) => {
     setInputFormValue("");
   };
 
-  const addTask = () => {
-    const obj = {
-      listId: list.id,
-      text: inputFormValue,
-      completed: false,
-    };
-    setIsLoading(true);
-    axios
-      .post("http://localhost:3001/tasks", obj)
-      .then(({ data }) => {
-        onAddTask(list.id, data);
-        toggleVisibleForm();
-      })
-      .catch(() => {
-        alert("Произошла ошибка!");
-      })
-      .finally(() => {
-        setIsLoading(false);
+  // const addTask = () => {
+  //   const obj = {
+  //     listId: list.id,
+  //     text: inputFormValue,
+  //     completed: false,
+  //   };
+  //   setIsLoading(true);
+  //   axios
+  //     .post("http://localhost:3001/tasks", obj)
+  //     .then(({ data }) => {
+  //       onAddTask(list.id, data);
+  //       toggleVisibleForm();
+  //     })
+  //     .catch(() => {
+  //       alert("Произошла ошибка!");
+  //     })
+  //     .finally(() => {
+  //       setIsLoading(false);
+  //     });
+  // };
+
+  const addTask = async (e) => {
+    e.preventDefault();
+    if (inputFormValue !== "") {
+      await addDoc(collection(db, "todos"), {
+        listId: list.id,
+        text: inputFormValue,
+        completed: false,
       });
+      setInputFormValue("");
+    }
   };
 
   return (

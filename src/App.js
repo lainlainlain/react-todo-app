@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/lists?_expand=color&_embed=tasks")
+      .get("http://localhost:3001//lists/AoQkqgmFjNNVmRbZixi9")
       .then(({ data }) => {
         setListsState(data);
       });

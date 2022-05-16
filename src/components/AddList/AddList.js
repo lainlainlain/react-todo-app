@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { db } from "../../firebase"
+import { collection, addDoc } from "firebase/firestore";
 
 import List from "../List/List";
 import Badge from "../UI/Badge/Badge";
@@ -25,12 +27,10 @@ const AddList = ({ colors, onAdd }) => {
     setVisiblePopup(false);
   };
 
-  const addList = () => {
-    if (!inputValue) {
-      alert("Введите название");
-      return;
-    }
-    setIsLoading(true);
+
+
+  const addList = async () => { 
+   
     axios
       .post("http://localhost:3001/lists", {
         name: inputValue,
