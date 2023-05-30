@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 
 import addSvg from '../../assets/img/add.svg';
-import { api } from '../../../api/api';
+import { api } from '../../api/api';
 
 const AddNewTask = ({ list, onAddTask }) => {
   const [visibleForm, setVisibleForm] = useState(false);
