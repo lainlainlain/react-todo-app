@@ -33,7 +33,7 @@ const AddList = ({ colors, onAdd }) => {
     }
     setIsLoading(true);
     axios
-      .post(`${api}lists`, {
+      .post(`https://json-server-todoapp-mocha.vercel.app/lists`, {
         name: inputValue,
         colorId: selectedColor,
       })

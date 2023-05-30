@@ -13,10 +13,12 @@ function App() {
   const [activeItem, setActiveItem] = useState(null);
 
   useEffect(() => {
-    axios.get(`${api}lists?_expand=color&_embed=tasks`).then(({ data }) => {
-      setListsState(data);
-    });
-    axios.get(`${api}colors`).then(({ data }) => {
+    axios
+      .get(`https://json-server-todoapp-mocha.vercel.app/lists?_expand=color&_embed=tasks`)
+      .then(({ data }) => {
+        setListsState(data);
+      });
+    axios.get(`https://json-server-todoapp-mocha.vercel.app/colors`).then(({ data }) => {
       setColors(data);
     });
   }, []);
@@ -70,7 +72,7 @@ function App() {
         return list;
       });
       setListsState(newList);
-      axios.delete(`${api}tasks/` + taskId).catch(() => {
+      axios.delete(`https://json-server-todoapp-mocha.vercel.app/tasks/` + taskId).catch(() => {
         alert('Запрос не отправлен');
       });
     }
@@ -91,7 +93,7 @@ function App() {
     });
     setListsState(newList);
     axios
-      .patch(`${api}tasks/` + taskObj.id, {
+      .patch(`https://json-server-todoapp-mocha.vercel.app/tasks/` + taskObj.id, {
         text: newTaskText,
       })
       .catch(() => {
@@ -113,7 +115,7 @@ function App() {
     });
     setListsState(newList);
     axios
-      .patch(`${api}tasks/` + taskId, {
+      .patch(`https://json-server-todoapp-mocha.vercel.app/tasks/` + taskId, {
         completed,
       })
       .catch(() => {

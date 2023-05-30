@@ -22,7 +22,7 @@ const AddNewTask = ({ list, onAddTask }) => {
     };
     setIsLoading(true);
     axios
-      .post(`${api}`, obj)
+      .post(`https://json-server-todoapp-mocha.vercel.app`, obj)
       .then(({ data }) => {
         onAddTask(list.id, data);
         toggleVisibleForm();

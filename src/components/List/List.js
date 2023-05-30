@@ -9,7 +9,7 @@ import api from '../../api/api';
 const List = ({ props, onClickPopup, isRemovable, onRemove, onClickItem, activeItem }) => {
   const removeList = (item) => {
     if (window.confirm('Вы действительно хотите удалить список?')) {
-      axios.delete(`${api}lists/` + item.id).then(() => {
+      axios.delete(`https://json-server-todoapp-mocha.vercel.app/lists/` + item.id).then(() => {
         onRemove(item.id);
       });
     }

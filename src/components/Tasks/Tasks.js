@@ -22,7 +22,7 @@ const Tasks = ({
     if (newTitle) {
       onEditTitle(list.id, newTitle);
       axios
-        .patch(`${api}` + list.id, {
+        .patch(`https://json-server-todoapp-mocha.vercel.app/` + list.id, {
           name: newTitle,
         })
         .catch(() => {
