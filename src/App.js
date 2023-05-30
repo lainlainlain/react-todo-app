@@ -70,7 +70,7 @@ function App() {
         return list;
       });
       setListsState(newList);
-      axios.delete('https://json-server-backend-topaz.vercel.app/tasks/' + taskId).catch(() => {
+      axios.delete(`${api}/tasks/` + taskId).catch(() => {
         alert('Запрос не отправлен');
       });
     }
@@ -91,7 +91,7 @@ function App() {
     });
     setListsState(newList);
     axios
-      .patch('https://json-server-backend-topaz.vercel.app/tasks/' + taskObj.id, {
+      .patch(`${api}/tasks/` + taskObj.id, {
         text: newTaskText,
       })
       .catch(() => {
@@ -113,7 +113,7 @@ function App() {
     });
     setListsState(newList);
     axios
-      .patch('https://json-server-backend-topaz.vercel.app/tasks/' + taskId, {
+      .patch(`${api}tasks/` + taskId, {
         completed,
       })
       .catch(() => {
