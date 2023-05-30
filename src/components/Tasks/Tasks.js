@@ -1,11 +1,12 @@
-import React from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import React from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-import "./Tasks.scss";
-import editSvg from "../../assets/img/edit.svg";
-import AddNewTask from "./AddNewTask";
-import NewTask from "./NewTask";
+import './Tasks.scss';
+import editSvg from '../../assets/img/edit.svg';
+import AddNewTask from './AddNewTask';
+import NewTask from './NewTask';
+import { api } from '../../../api/api';
 
 const Tasks = ({
   list,
@@ -17,15 +18,15 @@ const Tasks = ({
   onCompleteTask,
 }) => {
   const editTitle = () => {
-    const newTitle = prompt("Введение название списка", list.name);
+    const newTitle = prompt('Введение название списка', list.name);
     if (newTitle) {
       onEditTitle(list.id, newTitle);
       axios
-        .patch("https://json-server-backend-fortodoapp.herokuapp.com/lists/" + list.id, {
+        .patch(`${api}` + list.id, {
           name: newTitle,
         })
         .catch(() => {
-          alert("Запрос не отправлен");
+          alert('Запрос не отправлен');
         });
     }
   };
@@ -39,9 +40,7 @@ const Tasks = ({
         </div>
       </Link>
       <div className="tasks__items">
-        {!withoutEmpty && list.tasks && !list.tasks.length && (
-          <h2>Задачи отсуствуют</h2>
-        )}
+        {!withoutEmpty && list.tasks && !list.tasks.length && <h2>Задачи отсуствуют</h2>}
         {list.tasks &&
           list.tasks.map((task) => (
             <NewTask

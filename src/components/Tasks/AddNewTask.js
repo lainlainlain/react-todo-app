@@ -1,16 +1,17 @@
-import { useState } from "react";
-import axios from "axios";
+import { useState } from 'react';
+import axios from 'axios';
 
-import addSvg from "../../assets/img/add.svg";
+import addSvg from '../../assets/img/add.svg';
+import { api } from '../../../api/api';
 
 const AddNewTask = ({ list, onAddTask }) => {
   const [visibleForm, setVisibleForm] = useState(false);
-  const [inputFormValue, setInputFormValue] = useState("");
+  const [inputFormValue, setInputFormValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const toggleVisibleForm = () => {
     setVisibleForm(!visibleForm);
-    setInputFormValue("");
+    setInputFormValue('');
   };
 
   const addTask = () => {
@@ -21,13 +22,13 @@ const AddNewTask = ({ list, onAddTask }) => {
     };
     setIsLoading(true);
     axios
-      .post("https://json-server-backend-fortodoapp.herokuapp.com/tasks", obj)
+      .post(`${api}`, obj)
       .then(({ data }) => {
         onAddTask(list.id, data);
         toggleVisibleForm();
       })
       .catch(() => {
-        alert("Произошла ошибка!");
+        alert('Произошла ошибка!');
       })
       .finally(() => {
         setIsLoading(false);
@@ -51,7 +52,7 @@ const AddNewTask = ({ list, onAddTask }) => {
             onChange={(e) => setInputFormValue(e.target.value)}
           />
           <button disabled={isLoading} onClick={addTask} className="button">
-            {isLoading ? "Добавление..." : "Добавить задачу"}
+            {isLoading ? 'Добавление...' : 'Добавить задачу'}
           </button>
           <button onClick={toggleVisibleForm} className="button button--grey">
             Отмена
