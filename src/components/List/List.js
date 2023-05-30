@@ -4,7 +4,7 @@ import './List.scss';
 import classNames from 'classnames';
 import Badge from '../UI/Badge/Badge';
 import removeSvg from '../../assets/img/remove.svg';
-import { api } from '../../api/api';
+import api from '../../api/api';
 
 const List = ({ props, onClickPopup, isRemovable, onRemove, onClickItem, activeItem }) => {
   const removeList = (item) => {

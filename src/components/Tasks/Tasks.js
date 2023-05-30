@@ -6,7 +6,7 @@ import './Tasks.scss';
 import editSvg from '../../assets/img/edit.svg';
 import AddNewTask from './AddNewTask';
 import NewTask from './NewTask';
-import { api } from '../../api/api';
+import api from '../../api/api';
 
 const Tasks = ({
   list,
