@@ -1,1 +1,3 @@
-export const api = 'https://json-server-todoapp-mocha.vercel.app/';
+const api = 'https://json-server-todoapp-mocha.vercel.app/';
+
+export default api;
