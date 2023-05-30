@@ -33,7 +33,7 @@ const AddList = ({ colors, onAdd }) => {
     }
     setIsLoading(true);
     axios
-      .post(`${api}/lists`, {
+      .post(`${api}lists`, {
         name: inputValue,
         colorId: selectedColor,
       })

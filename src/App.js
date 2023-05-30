@@ -13,10 +13,10 @@ function App() {
   const [activeItem, setActiveItem] = useState(null);
 
   useEffect(() => {
-    axios.get(`${api}/lists?_expand=color&_embed=tasks`).then(({ data }) => {
+    axios.get(`${api}lists?_expand=color&_embed=tasks`).then(({ data }) => {
       setListsState(data);
     });
-    axios.get(`${api}/colors`).then(({ data }) => {
+    axios.get(`${api}colors`).then(({ data }) => {
       setColors(data);
     });
   }, []);
@@ -70,7 +70,7 @@ function App() {
         return list;
       });
       setListsState(newList);
-      axios.delete(`${api}/tasks/` + taskId).catch(() => {
+      axios.delete(`${api}tasks/` + taskId).catch(() => {
         alert('Запрос не отправлен');
       });
     }
@@ -91,7 +91,7 @@ function App() {
     });
     setListsState(newList);
     axios
-      .patch(`${api}/tasks/` + taskObj.id, {
+      .patch(`${api}tasks/` + taskObj.id, {
         text: newTaskText,
       })
       .catch(() => {
